@@ -1,0 +1,77 @@
+/*
+ * HackaJobs Stylesheet
+ * Bootstrap enhancements
+ *
+ * March 2015
+ *
+ */
+
+// ===================================
+// ADD THE XXS RESPONSIVE UTILITIES
+// ===================================
+
+@screen-xxs-max:              (@screen-xs - 1);
+
+// Visibility utilities
+.visible-xxs {
+  .responsive-invisibility();
+}
+.visible-xxs-block,
+.visible-xxs-inline,
+.visible-xxs-inline-block {
+  display: none !important;
+}
+.visible-xxs {
+  @media (max-width: @screen-xxs-max) {
+    .responsive-visibility();
+  }
+}
+.visible-xxs-block {
+  @media (max-width: @screen-xxs-max) {
+    display: block !important;
+  }
+}
+.visible-xxs-inline {
+  @media (max-width: @screen-xxs-max) {
+    display: inline !important;
+  }
+}
+.visible-xxs-inline-block {
+  @media (max-width: @screen-xxs-max) {
+    display: inline-block !important;
+  }
+}
+.hidden-xxs {
+  @media (max-width: @screen-xxs-max) {
+    .responsive-invisibility();
+  }
+}
+
+// Grid Mixin Override
+.make-grid-columns() {
+  // Common styles for all sizes of grid columns, widths 1-12
+  .col(@index) { // initial
+    @item: ~".col-xxs-@{index}, .col-xs-@{index}, .col-sm-@{index}, .col-md-@{index}, .col-lg-@{index}";
+    .col((@index + 1), @item);
+  }
+  .col(@index, @list) when (@index =< @grid-columns) { // general; "=<" isn't a typo
+    @item: ~".col-xxs-@{index}, .col-xs-@{index}, .col-sm-@{index}, .col-md-@{index}, .col-lg-@{index}";
+    .col((@index + 1), ~"@{list}, @{item}");
+  }
+  .col(@index, @list) when (@index > @grid-columns) { // terminal
+    @{list} {
+      position: relative;
+      // Prevent columns from collapsing when empty
+      min-height: 1px;
+      // Inner gutter via padding
+      padding-left:  (@grid-gutter-width / 2);
+      padding-right: (@grid-gutter-width / 2);
+    }
+  }
+  .col(1); // kickstart it
+}
+// Grid Build for XXS
+@media  (max-width: @screen-xxs-max) {
+  .make-grid(xxs);
+}
+

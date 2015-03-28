@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Landing title</title>
+
+        <!-- Angular JS -->
+        <script src="js/angular.min.js"></script>
+        <script src="js/app.js"></script>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="container wrap" ng-app="hackathonApp" ng-controller="">
+            <div class="row header">
+                <div class="col-sm-2">
+                    <img src="" alt="Job picture" />
+                </div>
+                <div class="col-sm-10">
+                    <h1>Job offer title</h1>
+                    <h3>Employer name</h3>
+                    <div class="offer-info">
+                        <span>Start date: 01/01/1970  –  End date: 31/12/1970  –  City</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row content">
+                <div class="col-sm-12">
+                    Lorem ipsum dolor sit amet...
+                </div>
+            </div>
+        	
+        	<div class="row">
+        		<div ng-repeat="item in items" >
+        		{{ item }}
+        		</div>
+        	</div>
+        	
+        </div>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="js/jquery-1.11.2.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+    </body>
+</html>

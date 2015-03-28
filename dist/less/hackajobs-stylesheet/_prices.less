@@ -1,0 +1,71 @@
+/*
+ * GNA Project Framework
+ * Layout
+ *
+ * Daniel Garcia, November 2014
+ *
+ */
+
+// ===================================
+// PRICES
+// ===================================
+
+.price {
+  position: relative;
+  display: inline-block;
+  font-size: ceil(@font-size-base * 1.3);
+  font-weight: 600;
+  letter-spacing: -1px;
+  letter-spacing: -0.5px;
+  span, div {
+    display: inline-block;
+  }
+  .units {
+    font-size: ceil(@font-size-base * 1.5);
+  }
+  .decimals {
+    margin-left: -(ceil(@font-size-base / 5));
+  }
+  .currency-symbol {
+    font-weight: 400;
+    &.before {}
+    &.after {}
+  }
+  &.offer {
+    color: @brand-primary;
+  }
+  &.old { // Old prices
+    font-weight: 400;
+    font-size: ceil(@font-size-base * 1.1);
+    .opacity(0.5);
+    .units {
+      font-size: ceil(@font-size-base * 1.3);
+    }
+    .currency-symbol {
+      display: none;
+    }
+    &:after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      top: 45%;
+      left: -3px;
+      right: -4px;
+      height: 2px;
+      background-color: @brand-danger;
+      .opacity(0.75);
+      .rotate(-12deg);
+    }
+  }
+}
+// Adjust the separation between two prices on the same context
+.price + .price {
+  margin-left: ceil(@font-size-base / 4);
+}
+// Style the price label such as "from:"
+.price-label {
+  font-size: ceil(@font-size-base * 0.9);
+  margin-right: 5px;
+  display: inline-block;
+  .opacity(0.5);
+}

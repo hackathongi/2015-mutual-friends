@@ -1,0 +1,57 @@
+/*!
+ * GNA rho-stylesheet for Bootstrap
+ * Base Styles
+ *
+ * Daniel Garcia, September 2014
+ *
+ */
+
+// ===================================
+// TABS
+// ===================================
+
+// Tabs Navigation
+ul.nav-tabs-rho {
+  margin-bottom: 0;
+  border-bottom-color: @nav-tabs-border-color;
+  margin-right: @border-radius-base;
+  > li {
+    > a {
+      padding: 6px ceil(@grid-gutter-width * 0.4);;
+      text-transform: uppercase;
+      line-height: 1;
+      font-size: ceil(@font-size-base * 0.8);
+      color: @brand-primary;
+      background-color: transparent;
+      border-color: transparent;
+      outline: 0;
+      &:hover,
+      &:active,
+      &:focus {
+        color: darken(@brand-primary, 15%);;
+        background-color: transparent;
+        border-color: transparent;
+        outline: 0;
+      }
+    }
+    &.active {
+      > a {
+        &,
+        &:hover,
+        &:active,
+        &:focus {
+          color: @input-color;
+          border-color: @input-border;
+          border-bottom-color: transparent;
+          background-color: @input-bg;
+        }
+      }
+    }
+  }
+}
+
+// Tabs Content
+.tab-content-rho {
+  .rho-add-tab-content-bg();
+  .tab-pane-rho { }
+}

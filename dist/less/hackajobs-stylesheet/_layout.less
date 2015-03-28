@@ -1,0 +1,83 @@
+/*
+ * HackaJobs Stylesheet
+ * Layout
+ *
+ * March 2015
+ *
+ */
+
+// ===================================
+// BASE LAYOUT
+// ===================================
+
+// ---------------------------
+// REMOVE DOTTED BORDER on LINKS
+// ---------------------------
+a {
+  &:hover, &:focus, &:active {
+    outline: 0;
+  }
+}
+
+header {
+  background-color: @well-bg;
+  padding: @grid-gutter-width;
+  padding-bottom: ceil(@grid-gutter-width * .25);
+  border-bottom: solid 2px @brand-success;
+  .wally-logo {
+    width: 180px;
+    float: right;
+    position: relative;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  // XXS Only
+  @media (max-width: @screen-xxs-max) {
+    padding-top: ceil(@grid-gutter-width * .25);
+    .wally-logo {
+      width: 120px;
+    }
+  }
+}
+
+footer {
+  background-color: @well-bg;
+  padding: ceil(@grid-gutter-width * .75);
+  border-top: solid 2px @brand-success;
+  text-align: center;
+}
+
+// ===================================
+// MEDIA QUERIES SAMPLE (Using Native MediaQueries)
+// ===================================
+/*
+ * !! IMPORTANT !!
+ *
+ * Think in Mobile First before use mediaQueries.
+ * By default assume that you're working on a XS screen.
+ *
+ * Place each mediaQuery closest to the affected selector,
+ * to keep the code readable.
+ *
+ */
+
+// XXS Only
+// ====--------------------
+@media (max-width: @screen-xxs-max) {}
+// SM Only
+// ============------------
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {}
+// SM and Wider
+// ============++++++++++++
+@media (min-width: @screen-sm-min) {}
+// MD Only
+// ================--------
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {}
+// MD and Wider
+// ================++++++++
+@media (min-width: @screen-md-min) {}
+// LG Only
+// ====================----
+@media (min-width: @screen-lg-min) {}

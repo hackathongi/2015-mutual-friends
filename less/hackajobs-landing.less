@@ -1,0 +1,101 @@
+/*
+ * HackaJobs Stylesheet
+ * Main file
+ *
+ * March 2015
+ *
+ */
+
+// ===================================
+// IMPORT DEPENDENCIES AND CREATE THE PROPER ENVIRONMENT
+// ===================================
+
+// ---------------------------
+// IMPORT Hackajobs core
+// ---------------------------
+@import "../hackajobs-stylesheet/hackajobs-stylesheet.less";
+
+// ===================================
+// write here
+// ===================================
+
+.wrap {
+	margin-top: 100px;
+
+	.logos {
+		.logo-employer, .logo-wallyjobs {
+			img {
+				width: 250px;
+			}
+		}
+
+		.logo-wallyjobs {
+			img {
+				float: right;
+			}
+		}
+	}
+
+	.header {
+		margin-top: 40px;
+	}
+
+	.content {
+		.offer-description {
+			font-size: 16px;
+		}
+	}
+
+	.offer-info {
+		margin-top: 10px;
+		font-size: 14px;
+	}
+
+	.offer-join {
+		text-align: center;
+
+		button {
+			font-size: 40px;
+		}
+	}
+}
+
+.share {
+	margin-top: 40px;
+	border-top: 1px solid #000;
+	padding-top: 40px;
+}
+
+// ===================================
+// MEDIA QUERIES SAMPLE (Using Native MediaQueries)
+// ===================================
+/*
+ * !! IMPORTANT !!
+ *
+ * Think in Mobile First before use mediaQueries.
+ * By default assume that you're working on a XS screen.
+ *
+ * Place each mediaQuery closest to the affected selector,
+ * to keep the code readable.
+ *
+ */
+
+// XXS Only
+// ====--------------------
+@media (max-width: @screen-xxs-max) {}
+// SM Only
+// ============------------
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {}
+// SM and Wider
+// ============++++++++++++
+@media (min-width: @screen-sm-min) {}
+// MD Only
+// ================--------
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {}
+// MD and Wider
+// ================++++++++
+@media (min-width: @screen-md-min) {}
+// LG Only
+// ====================----
+@media (min-width: @screen-lg-min) {}
+

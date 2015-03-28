@@ -1,0 +1,37 @@
+
+// ===================================
+// IMAGES
+// ===================================
+
+// Creates a wrapper for a series of columns
+.rho-set-image-container-proportions(@width-ratio: 1, @height-ratio: 1) {
+  @percentage-ratio: ( (@height-ratio / @width-ratio) * 100% );
+  display: block;
+  width: 100%;
+  position: relative;
+  height: 0;
+  padding: @percentage-ratio 0 0 0;
+  overflow: hidden;
+  > img {
+    position: absolute;
+    display: block;
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
+}
+// Images Container
+.rho-image-container {
+  &[data-image-ratio="1:1"] {
+    .rho-set-image-container-proportions(1,1);
+  }
+  &[data-image-ratio="4:3"] {
+    .rho-set-image-container-proportions(4,3);
+  }
+  &[data-image-ratio="16:9"] {
+    .rho-set-image-container-proportions(16,9);
+  }
+  &[data-image-ratio="2:1"] {
+    .rho-set-image-container-proportions(2,1);
+  }
+}

@@ -1,0 +1,55 @@
+/*
+ * HackaJobs Stylesheet
+ * Mixins file
+ *
+ * March 2015
+ *
+ */
+
+// ---------------------------
+// GRID related
+// ---------------------------
+// Creates a wrapper for a series of columns
+.hck-make-row(@gutter: @grid-gutter-width) {
+  margin-left:  (@gutter / -2);
+  margin-right: (@gutter / -2);
+  .clearfix();
+}
+// Generate the columns
+.hck-make-col(@columns; @columns-max: 12; @gutter: @grid-gutter-width) {
+  position: relative;
+  float: left;
+  width: percentage((@columns / @columns-max));
+  // Prevent columns from collapsing when empty
+  min-height: 1px;
+  // Inner gutter via padding
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+  // Bottom margin
+  margin-bottom: @gutter;
+}
+
+// ---------------------------
+// TRANSITIONS mixins
+// ---------------------------
+.hck-transition(@property, @duration, @timing) {
+  transition-property: @property;
+  transition-duration: @duration;
+  transition-timing-function: @timing;
+  -webkit-transition-property: @property;
+  -webkit-transition-duration: @duration;
+  -webkit-transition-timing-function: @timing;
+}
+.hck-transition-out(@property: all, @duration: 0.3s) {
+  .hck-transition(@property, @duration, ease-out);
+}
+.hck-transition-in(@property: all, @duration: 0.15s) {
+  .hck-transition(@property, @duration, ease-in);
+}
+
+.hck-transition-complete(@property: all, @duration: 0.3s) {
+  .hck-transition(@property, @duration, ease-out);
+  &:hover, &:focus, &:active {
+    .hck-transition(@property, (@duration / 2), ease-in);
+  }
+}

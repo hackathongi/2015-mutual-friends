@@ -1,0 +1,37 @@
+/*
+ * GNA Project Framework
+ * Layout
+ *
+ * Daniel Garcia, November 2014
+ *
+ */
+
+// ===================================
+// STARS
+// ===================================
+
+.category[data-stars] {
+  @rho-icon-height: 14px;
+  @rho-icon-width: 7px;
+  @rho-icon-size: 7px;
+  display: inline-block;
+  height: @rho-icon-height;
+  position: relative;
+  min-width: @rho-icon-width;
+  line-height: 2.1;
+  &:before {
+    font-family: "rho-stylesheet";
+    font-size: @rho-icon-size;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    //width: @rho-icon-width;
+  }
+  &[data-stars="1"] { width: (@rho-icon-width * 1); &:before {content: "\e609";} }
+  &[data-stars="2"] { width: (@rho-icon-width * 2); &:before {content: "\e609\e609";} }
+  &[data-stars="3"] { width: (@rho-icon-width * 3); &:before {content: "\e609\e609\e609";} }
+  &[data-stars="4"] { width: (@rho-icon-width * 4); &:before {content: "\e609\e609\e609\e609";} }
+  &[data-stars="5"] { width: (@rho-icon-width * 5); &:before {content: "\e609\e609\e609\e609\e609";} }
+}
