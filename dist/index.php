@@ -1,8 +1,28 @@
 <?php
 
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } 
+
+    $sql = "SELECT * FROM tbl_application WHERE id = " .$_GET["id_application"];
+    $result = $conn->query($sql);
+
+    $application = null;
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $application = $row;
+        }
+    } else {
+        // echo "0 results";
+    }
+    $conn->close();
     
     $jobtitle = "Oferta per programador senior";
-    $url_fb = "https://apisocial.wallyjobs.com/login/facebook?urlOK=". urlencode("http://localhost/2015-inscripcio2/dist/");
+    $url_fb = "https://apisocial.wallyjobs.com/login/facebook?urlOK=". urlencode("http://localhost/hackathon-mutual-friends/dist/");
     
     if (isset($_GET["new"]))
     {
@@ -17,7 +37,9 @@
         array_pop($parts);
         $last = end($parts);
 
-        $url = "https://demo1200974.mockable.io/mutualfriends";
+        //$url = "https://demo1200974.mockable.io/mutualfriends";
+        $url = "https://apisocial.wallyjobs.com/mutual/" . $_GET["id_candidate"] . "/" . $application["user_id"];
+        echo $url;
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -47,27 +69,6 @@
         $dbname = "Hackajobs";
         
     }
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } 
-
-    $sql = "SELECT * FROM tbl_application WHERE id = " .$_GET["id_application"];
-    $result = $conn->query($sql);
-
-    $application = null;
-    if ($result->num_rows > 0) {
-        // output data of each row
-        while($row = $result->fetch_assoc()) {
-            $application = $row;
-        }
-    } else {
-        // echo "0 results";
-    }
-    $conn->close();
 
     $textMail = "Bones, estic buscant feina i m'agradaria que em recomanessis per aquesta posició.";
     $link = "https://recommendme.wallyjobs.com?id_candidate=" . $_GET["id_candidate"] . "&id_job=" . $application["job_id"] . "&id_application=" . $application["id"];
@@ -136,6 +137,8 @@
             </section>
         </article>
     </main>
+
+    <a href="#" onclick=""
 
     <footer>
         <p class="small">©2015 Bla bla bla, ...</p>
