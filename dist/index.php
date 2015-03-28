@@ -29,11 +29,12 @@
         $friends = json_decode($result, true);
     }
     
-    /*
+/*
     $id_candidate, $id_job, $id_application;
     
     http://recommendme.wallyjobs.com?$id_candidate=
 */
+    
 ?>
 
 <!DOCTYPE html>
