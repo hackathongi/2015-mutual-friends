@@ -137,8 +137,6 @@
         </article>
     </main>
 
-    <a href="#" onclick=""
-
     <footer>
         <p class="small">©2015 Bla bla bla, ...</p>
     </footer>
