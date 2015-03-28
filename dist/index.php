@@ -66,6 +66,7 @@
         $result=curl_exec($ch);
         curl_close($ch);
 
+        echo $url;
         echo $result;
         
         $friends = json_decode($result, true);
