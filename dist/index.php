@@ -42,7 +42,7 @@
     {
         // Retrieve application from BBDD
         $servername = "mySQL";
-        $username = "hackajobs";
+        $username = "hackajob";
         $password = "uiyr683d";
         $dbname = "Hackajobs";
         
