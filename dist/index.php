@@ -126,11 +126,6 @@
         </article>
     </main>
 
-
-    <div class="offer-apply">
-        <a class="btn btn-primary btn-lg" href="<?php echo $url_fb; ?>">Apply</a>
-    </div>
-
     <footer>
         <p class="small">©2015 Bla bla bla, ...</p>
     </footer>
