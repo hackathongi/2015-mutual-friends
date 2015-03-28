@@ -58,6 +58,7 @@
 
         //$url = "https://demo1200974.mockable.io/mutualfriends";
         $url = "https://apisocial.wallyjobs.com/friends/facebook/" . $_GET["id_candidate"] . "/" . $application["user_id"];
+        echo $url;
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
