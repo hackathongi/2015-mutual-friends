@@ -1,5 +1,24 @@
 <?php
 
+    if ($_SERVER['SERVER_NAME'] == 'localhost')
+    {
+        // Retrieve application from BBDD
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "Hackajobs";
+        
+        echo 'LOCALHOST';
+    }
+    else
+    {
+        // Retrieve application from BBDD
+        $servername = "mySQL";
+        $username = "hackajob";
+        $password = "uiyr683d";
+        $dbname = "Hackajobs";
+    }
+    
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
     // Check connection
@@ -39,7 +58,6 @@
 
         //$url = "https://demo1200974.mockable.io/mutualfriends";
         $url = "https://apisocial.wallyjobs.com/mutual/" . $_GET["id_candidate"] . "/" . $application["user_id"];
-        echo $url;
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -49,25 +67,6 @@
         curl_close($ch);
 
         $friends = json_decode($result, true);
-    }
-    
-    
-    if ($_SERVER['SERVER_NAME'] == 'localhost')
-    {
-        // Retrieve application from BBDD
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "Hackajobs";
-    }
-    else
-    {
-        // Retrieve application from BBDD
-        $servername = "mySQL";
-        $username = "hackajob";
-        $password = "uiyr683d";
-        $dbname = "Hackajobs";
-        
     }
 
     $textMail = "Bones, estic buscant feina i m'agradaria que em recomanessis per aquesta posició.";
