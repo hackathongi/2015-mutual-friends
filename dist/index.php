@@ -6,7 +6,7 @@
     
     if (isset($_GET["new"]))
     {
-        echo 'hola';
+        // echo 'hola';
     }
     else
     {
@@ -30,12 +30,23 @@
     }
     
     
-    
-    // Retrieve application from BBDD
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "Hackajobs";
+    if ($_SERVER['SERVER_NAME'] == 'localhost')
+    {
+        // Retrieve application from BBDD
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "Hackajobs";
+    }
+    else
+    {
+        // Retrieve application from BBDD
+        $servername = "mySQL";
+        $username = "hackajobs";
+        $password = "uiyr683d";
+        $dbname = "Hackajobs";
+        
+    }
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -54,7 +65,7 @@
             $application = $row;
         }
     } else {
-        echo "0 results";
+        // echo "0 results";
     }
     $conn->close();
 
