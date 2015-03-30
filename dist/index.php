@@ -65,9 +65,10 @@
         curl_setopt($ch, CURLOPT_URL,$url);
         $result=curl_exec($ch);
 
-        echo $url;
+        echo "URL: " .$url;
         echo "Result: " . $result;
         echo "CH: " . $ch;
+        echo "error: " . curl_error($ch);
         
         curl_close($ch);
 
