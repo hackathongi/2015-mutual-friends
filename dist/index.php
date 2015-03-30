@@ -21,11 +21,13 @@
     
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
+    
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     } 
 
+    // Fetching the application from DB
     $sql = "SELECT * FROM tbl_application WHERE id = " .$_GET["id_application"];
     $result = $conn->query($sql);
 
@@ -38,9 +40,23 @@
     } else {
         // echo "0 results";
     }
+    
+    // Fetching the job information from DB
+    $sql = "SELECT * FROM tbl_job WHERE id = " .$application["job_id"];
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $jobtitle = $row["title"];
+        }
+    } else {
+        // echo "0 results";
+    }
+    
     $conn->close();
     
-    $jobtitle = "Oferta per programador senior";
+    // $jobtitle = "Oferta per programador senior";
     $url_fb = "https://apisocial.wallyjobs.com/login/facebook?urlOK=". urlencode("http://localhost/hackathon-mutual-friends/dist/");
     
     if (isset($_GET["new"]))
@@ -57,7 +73,7 @@
         $last = end($parts);
 
         //$url = "https://demo1200974.mockable.io/mutualfriends";
-        $url = "https://apisocial.wallyjobs.com/friends/facebook/" . $_GET["id_candidate"] . "/" . $application["user_id"];
+        $url = "https://www.apisocial.wallyjobs.com/friends/facebook/" . $_GET["id_candidate"] . "/" . $application["user_id"];
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -119,7 +135,7 @@
 
         <article class="offer-status">
 
-            <h1 class="offer-title">Cambrer restaurant Platja</h1>
+            <h1 class="offer-title"><?=$jobtitle; ?></h1>
 
             <section class="offer-mutual-friends">
                 <h4 class="mutual-friends-title">Tens <?=count($friends); ?> amics en comú amb l'anunciant:</h4>
