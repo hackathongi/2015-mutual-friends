@@ -66,14 +66,12 @@
         $result=curl_exec($ch);
 
         echo $url;
-        echo $result;
+        echo "Result: " . $result;
+        echo "CH: " . $ch;
         
         curl_close($ch);
 
-        
         $friends = json_decode($result, true);
-        
-        
     }
 
     $textMail = "Bones, estic buscant feina i m'agradaria que em recomanessis per aquesta posició.";
@@ -130,9 +128,9 @@
                 ?>
                     <article class="mutual-friend">
                         <div class="friend-image">
-                            <img src="<?=$friend["picture_url"]?>">
+                            <img src="<?=$friend["https://graph.facebook.com/10206253168390472/picture?width=150&height=150"]?>">
                         </div>
-                        <h5 class="friend-name"><?=$friend["name"]?> </h5>
+                        <h5 class="friend-name"><?=$friend["displayName"]?> </h5>
                         <a class="friend-recommendation-request" href="#" onclick="fbClick();"><span class="badge">Sol·licita una recomanació</span></a>
                     </article>
                             
